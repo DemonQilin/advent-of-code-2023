@@ -5,35 +5,16 @@ use color_eyre::eyre::Context;
 fn main() -> color_eyre::Result<()> {
     color_eyre::install()?;
 
-    let input = include_str!("improved-calibration.txt");
-    let mut numbers: Vec<u32> = Vec::with_capacity(input.lines().count());
+    let lines = include_str!("improved-calibration.txt").lines();
 
-    for line in input.lines() {
-        let mut numbers_in_line = Vec::with_capacity(line.len());
+    let numbers_in_lines =
+        lines.map(|line| line.split(|c: char| !c.is_numeric()).collect::<String>());
 
-        for char in line.chars() {
-            if !char.is_numeric() {
-                continue;
-            }
+    let numbers = numbers_in_lines
+        .map(|numbers| numbers[0..1].to_string() + &numbers[numbers.len() - 1..])
+        .map(|number| number.parse::<u32>().unwrap());
 
-            numbers_in_line.push(char);
-        }
-
-        let number = if numbers_in_line.len() == 1 {
-            numbers_in_line[0].to_string().repeat(2)
-        } else {
-            format!(
-                "{}{}",
-                numbers_in_line.first().unwrap(),
-                numbers_in_line.last().unwrap()
-            )
-        };
-
-        let number: u32 = number.parse()?;
-        numbers.push(number);
-    }
-
-    let sum: u32 = numbers.iter().sum();
+    let sum = numbers.sum::<u32>();
     println!("The sum is: {sum}");
 
     Ok(())
