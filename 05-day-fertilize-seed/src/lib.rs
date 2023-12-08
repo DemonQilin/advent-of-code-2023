@@ -104,4 +104,12 @@ mod test {
 
         assert_eq!(result, 35);
     }
+
+    #[test]
+    fn should_return_46() {
+        let input = include_str!("seeds-almanac-test-input.txt");
+        let result = get_lowest_location_of_seeds_second_part(input);
+
+        assert_eq!(result, 46);
+    }
 }
