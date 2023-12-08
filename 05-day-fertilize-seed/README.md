@@ -119,4 +119,4 @@ Now, rather than considering four seed numbers, you need to consider a total of 
 
 In the above example, the lowest location number can be obtained from seed number `82`, which corresponds to soil `84`, fertilizer `84`, water `84`, light `77`, temperature `45`, humidity `46`, and **_location `46`_**. So, the lowest location number is **_`46`_**.
 
-Consider all of the initial seed numbers listed in the ranges on the first line of the [almanac](https://github.com/DemonQilin/advent-of-code-2023/tree/main/05-day-fertilize-seed/seeds-almanac-input.txt). **_What is the lowest location number that corresponds to any of the initial seed numbers?_**
+Consider all of the initial seed numbers listed in the ranges on the first line of the [almanac](https://github.com/DemonQilin/advent-of-code-2023/blob/main/05-day-fertilize-seed/src/seeds-almanac-input.txt). **_What is the lowest location number that corresponds to any of the initial seed numbers?_**
